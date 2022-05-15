@@ -174,3 +174,110 @@ Podemos usar ". '. `
 ### Arrays
 
 Podemos indicar que queremos distintos tipos de datos en nuestros arrays: `let products: (number | string | boolean)[] = [10, 'ten', true];`
+
+## Tipos de datos especiales
+
+### Any
+
+Trata de no usar Any en TS.
+
+### Union types
+
+VS Code nos ayuda en el scope del tipo de variable que usemos en nuestro código:
+
+```typescript
+function greeting(myText: string | number) {
+  typeof myText === 'string' ? console.log(myText.toUpperCase()) : console.log(myText + 5);
+}
+```
+
+### Alias y tipos literales
+
+```typescript
+(()=>{
+  type UserID = string | number //*alias type
+
+  //* Literal types
+  type Sizes = 'S' | 'M' | 'L' | 'XL'
+
+  function greeting(userId: UserID, size: Sizes) {
+    console.log(`Hello ${userId} your t-shirt size is ${size}`)
+  }
+
+  greeting(1, 'S')
+})()
+
+```
+
+### Null y Undefined
+
+null y undefined son **diferentes**.
+
+[Optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
+
+### Funciones
+
+Podemos poner parámetros opcionales con ?
+
+```typescript
+const createProductToJSONV2 = (
+    title: string,
+    createdAt: Date,
+    stock: number,
+    size?: Sizes
+  ) => {
+    return {
+      title,
+      createdAt,
+      stock,
+      size
+    }
+  }
+```
+
+### Retorno de funciones
+
+Podemos indicar en las funciones si queremos que retorne un tipo de dato o un void.
+
+### Objetos en funciones
+
+```typescript
+const login = (data: {email: string, password: string}) => {
+  console.log(data.email, data.password);
+}
+```
+
+### Objetos como tipos
+
+Podemos crear nuestros objetos como nosotros lo necesitemos.
+
+```typescript
+type Product = {
+  title: string,
+  createdAt: Date,
+  stock: number,
+  size: Sizes
+}
+
+const products: Product[] = []
+```
+
+### Módulos: import y export
+
+Es simplemente usar `export` e `import`.
+
+### Usando librerías que soportan TypeScript
+
+[date-fns](https://date-fns.org/docs/Getting-Started)
+
+La instalamos con `npm i date-fns --save`
+
+Las librerías con soporte para TS se integran muy bien a nuestros proyectos.
+
+### Usando librerías que NO soportan TypeScript
+
+[Lodash](https://lodash.com/)
+
+`npm i lodash`
+
+VS Code nos sugiere: `npm i --save-dev @types/lodash`
