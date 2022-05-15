@@ -281,3 +281,21 @@ Las librerías con soporte para TS se integran muy bien a nuestros proyectos.
 `npm i lodash`
 
 VS Code nos sugiere: `npm i --save-dev @types/lodash`
+
+## examen
+
+- ¿Cuál es el tipado correcto para crear una variable que soporte strings y null?: `let myName: (string|null) = null`
+- ¿Cuál sería la forma correcta de definir un array que solo soporte números y booleanos?: `let mixed: (number|boolean)[]`
+- ¿Cuál es la forma correcta de definir un hexadecimal en TS?: `let hex = 0xfff`
+- ¿Cuál de las siguientes en la manera correcta de definir una parámetro opcional en una función?: `function sum(a?: number) {}`
+- ¿Cuál de estas formas es la manera correcta de definir un objeto como parámetros de una función?: `function login(data: {email: string, password: string})`
+- Teniendo en cuenta este código: `type Sizes = 'S' | 'M' | 'L' | 'XL';  let shirtSize: Sizes; shirtSize = 'xxl';` ¿El valor asignado a  shirtSize es válido?: no
+- Una prueba práctica es definir un variable con un valor boolean de esta manera:  const myBoolean: Boolean = true; : no porque no se recomienda usar Boolean
+- Si quiero declarar una función que no tiene retorno ¿cuál de las siguientes palabras reservadas de TS usaría?: void
+- ¿Cuál es la opción correcta para decirle al compilador de TS la versión de JavaScript a la cual debe transpilar?: `npx tsc src/** --target es6`
+- Cuando hay librerías que no tiene  soporte a tipos por ejemplo en el caso de  lodash podemos agregar el soporte a tipos usando el comando... `npm i @types/lodash --save-dev`
+- Teniendo en cuenta esta instrucción `const rta = 1 + '1';` ¿Cuál sería el tipo de dato que infiere TS de rta?: string
+- Si se define esta variable  let myProductPrice = 100; ¿Cuál es el tipo que infiere TS?: number
+- ¿Cuál sería la forma correcta de definir una variable que solo soporte números y strings?: `let myVar: number|string`
+- ¿Cuál es la manera correcta de crear un propio tipo para definir los atributos de un Producto?: `type Product = {}`
+- ¿Cuál es comando con el cual pueda habilitar el análisis de código de TypeScript en un archivo JavaScript?: `@ts-check`
